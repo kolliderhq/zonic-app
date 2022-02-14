@@ -36,7 +36,6 @@ export default function Home() {
 		// bg-gradient-to-br from-indigo-500 to-indigo-800
 		<div className="w-full sm:grid sm:grid-rows sm:px-4 pt-3 relative bg-white">
 			<Dialogs />
-			<Popups />
 			<Header />
 			<div className="h-screen">
 				<div className="flex h-full">
