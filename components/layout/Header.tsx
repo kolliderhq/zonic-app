@@ -39,17 +39,6 @@ export const Header = () => {
 						What is Zonic?
 					</button>
 				</div>
-				<WeblnButton />
-				{!loggedIn && (
-					<button
-						onClick={() => dispatch(setDialog(DIALOGS.LOGIN))}
-						className="py-1 px-2 border border-gray-100 shadow-elevation-08dp hover:border-theme-main rounded-md group hover:opacity-80">
-						<p className="text-xs xxs:text-sm flex flex-col items-center xs:block">
-							<img className="xs:inline mr-1" width={16} height={16} src="/assets/common/lightning.svg" />
-							Login
-						</p>
-					</button>
-				)}
 				<button
 					onClick={() => dispatch(setTab(TABS.SETTINGS))}
 					className={cn(

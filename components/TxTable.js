@@ -52,12 +52,12 @@ export const TxTable = () => {
 					<Loader color={'black'} text={'Processing'} />
 				</div>
 			) : (
-				<table className="text-black w-full h-full table-fixed">
+				<table className="text-black w-full table-fixed">
 					<thead className="sticky top-0 border-b border-b-4 border-gray-50 text-gray-400 text-left bg-white">
-						<tr>
-							<th></th>
-							<th>Price ($)</th>
-							<th>Amount {selectedWallet === "BTC"? "sats": "$"}</th>
+						<tr className="">
+							<th className=""></th>
+							<th className="">Price ($)</th>
+							<th className="">Amount {selectedWallet === "BTC"? "sats": "$"}</th>
 						</tr>
 					</thead>
 					<tbody className="text-left text-gray-500">

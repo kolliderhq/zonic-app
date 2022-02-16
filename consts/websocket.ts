@@ -76,6 +76,16 @@ export const WS_UMBREL = {
 			type: 'authHedger',
 			returnType: 'authHedger',
 			createBody: (params: any) => ({ ...params }),
+		},
+		CLOSE_ACCOUNT: {
+			type: 'closeAccount',
+			returnType: 'closeAccount',
+			createBody: (params: any) => ({ ...params }),
+		},
+		LOGOUT: {
+			type: 'logout',
+			returnType: 'logout',
+			createBody: (params: any) => ({ ...params }),
 		}
 	},
 };
