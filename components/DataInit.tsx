@@ -16,6 +16,7 @@ import { useUmbrel } from 'hooks/init/useUmbrel';
 import { useWebln } from 'hooks/init/useWebln';
 import { useAppSelector } from 'hooks/redux';
 import { useStatusChecker } from 'hooks/useStatusChecker';
+import { auth } from 'classes/Auth';
 
 export const DataInit = () => {
 	const [loaded, setLoaded] = React.useState(false);
@@ -83,6 +84,7 @@ const Umbrel = () => {
 		if (process.env.NEXT_PUBLIC_UMBREL === '1' && window.location.hostname !== 'umbrel.local') {
 			alert('Kollider Lite only supports being loaded from umbrel.local:4243');
 		}
+		auth.logoutUser()
 	}, []);
 	return (
 		<WrapHasLightClient loaderElement={<></>}>

@@ -61,9 +61,10 @@ export const ConvertFunds = () => {
 	};
 
 	useEffect(() => {
-		if (!wallets["USD"] || !wallets["BTC"]) return
+		console.log(wallets)
+		if (!wallets.USD || !wallets.BTC) return
 		setWalletsHaveLoaded(true)
-	}, [wallets])
+	}, [wallets, walletsHaveLoaded])
 
 	useEffect(() => {
 		if (isNaN(parseInt(dollarConversionAmount))) {
@@ -116,7 +117,7 @@ export const ConvertFunds = () => {
 							</div>
 						</div>
 						{
-							walletsHaveLoaded ? (
+							!walletsHaveLoaded ? (
 								<Loader color={'#7372f7'} />
 							) : (
 								<div className="h-full flex flex-col">
