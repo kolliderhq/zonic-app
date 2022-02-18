@@ -61,6 +61,7 @@ if (process.env.NEXT_PUBLIC_BACK_ENV === 'production') {
 	})();
 } else {
 	back = 'http://api.staging.kollider.internal/v1';
+	// back = 'https://api.kollider.xyz/v1';
 }
 
 const END_POINTS: Record<string, string> = Object.freeze({

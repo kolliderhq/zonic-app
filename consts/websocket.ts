@@ -18,6 +18,7 @@ if (process.env.NEXT_PUBLIC_LOCAL_DEV === '1') {
 		// back = 'ws://api.staging.kollider.internal/v1/ws/';
 	} else {
 		back = 'ws://api.staging.kollider.internal/v1/ws/';
+		// back = 'wss://api.kollider.xyz/v1/ws/';
 	}
 }
 
@@ -80,6 +81,11 @@ export const WS_UMBREL = {
 		CLOSE_ACCOUNT: {
 			type: 'closeAccount',
 			returnType: 'closeAccount',
+			createBody: (params: any) => ({ ...params }),
+		},
+		GET_HISTORICAL_TRADES: {
+			type: 'getHistoricalTrades',
+			returnType: 'historicalTrades',
 			createBody: (params: any) => ({ ...params }),
 		},
 		LOGOUT: {

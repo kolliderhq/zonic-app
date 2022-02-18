@@ -19,10 +19,6 @@ export const Header = () => {
 		state.user.data.token !== '' && state.user.data.type === USER_TYPE.PRO,
 	]);
 
-	const onClickLogin = () => {
-		dispatch(setDialog(DIALOGS.LOGIN));
-	};
-
 	return (
 		<div className="flex items-center justify-between w-full h-14 pb text-gray-800">
 			<figure className="w-full flex items-center justify-start relative">
@@ -50,22 +46,4 @@ export const Header = () => {
 			</div>
 		</div>
 	);
-};
-
-const WeblnButton = () => {
-	const [isWeblnConnected, isUmbrelConnected] = useAppSelector(state => [
-		state.connection.isWeblnConnected,
-		state.connection.isUmbrelConnected,
-	]);
-
-	return !isWeblnConnected && !isUmbrelConnected ? (
-		<button
-			onClick={() => weblnConnectAttempt()}
-			className="py-1 px-2 border border-gray-100 shadow-elevation-24dp hover:border-theme-main rounded-md group hover:opacity-80">
-			<p className="text-xs xxs:text-sm flex flex-col items-center xs:block">
-				<img className="xs:inline mr-1" width={16} height={16} src="/assets/common/socket.svg" />
-				Webln
-			</p>
-		</button>
-	) : null;
 };

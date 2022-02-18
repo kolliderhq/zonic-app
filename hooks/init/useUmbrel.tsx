@@ -10,6 +10,8 @@ import { API_NAMES, DIALOGS, MESSAGE_TYPES, SETTINGS, UMBREL_MESSAGE_TYPES, USER
 import {
 	setIsUmbrelAuthenticated,
 	setIsUmbrelConnected,
+	setIsWsAuthenticated,
+	setIsWsConnected,
 	setPaymentInTransit,
 	setViewing,
 	setWallet,
@@ -81,36 +83,24 @@ export function useUmbrel() {
 }
 
 const useUmbrelAutoLogin = () => {
-	const [loggedIn, apiKey, isUmbrelUsable] = useAppSelector(state => [
-		state.user.data.type === USER_TYPE.PRO,
-		state.connection.apiKey,
-		state.connection.isUmbrelConnected && state.connection.isUmbrelAuthenticated,
-	]);
-	const { data } = useSWR(
-		apiKey && isUmbrelUsable ? [API_NAMES.AUTH_LNURL, apiKey] : undefined,
-		getSWROptions(API_NAMES.AUTH_LNURL)
-	);
+	// const [loggedIn, apiKey, isUmbrelUsable] = useAppSelector(state => [
+	// 	state.user.data.type === USER_TYPE.PRO,
+	// 	state.connection.apiKey,
+	// 	state.connection.isUmbrelConnected && state.connection.isUmbrelAuthenticated,
+	// ]);
+	// const { data } = useSWR(
+	// 	apiKey && isUmbrelUsable ? [API_NAMES.AUTH_LNURL, apiKey] : undefined,
+	// 	getSWROptions(API_NAMES.AUTH_LNURL)
+	// );
 
-	React.useEffect(() => {
-		if (!data?.lnurlAuth || loggedIn) return;
-		umbrelLogin(data.lnurlAuth);
-	}, [data, loggedIn]);
+	// React.useEffect(() => {
+	// 	if (!data?.lnurlAuth || loggedIn) return;
+	// 	umbrelLogin(data.lnurlAuth);
+	// }, [data, loggedIn]);
 };
 
 const umbrelLogin = (lnurl: string) => {
-	console.log('umbrelLogin attempt', lnurl);
-	baseSocketClient.listenOnce(WS_CUSTOM_TYPES.LNURL_AUTH_CREDENTIALS, data => {
-		console.log("--------------------------------------------------- LOGIn")
-		auth.proUserLogin(data);
-	});
-	baseUmbrelSocketClient.socketSend(UMBREL_MESSAGE_TYPES.AUTH_LNURL, { lnurl }, data => {
-		LOG3(data, 'umbrelLogin');
-		displayToast('Logged In with Umbrel', {
-			type: 'success',
-			level: TOAST_LEVEL.INFO,
-			toastId: 'umbrel-login-success',
-		});
-	});
+	console.log('umbrelLogin attempt ', lnurl);
 };
 
 const processUmbrelMsg = (type: any, msg: any) => {
@@ -150,6 +140,11 @@ const processUmbrelMsg = (type: any, msg: any) => {
 			dp: data.dp
 		};
 		storeDispatch(setWallet({ currencySymbol: data.currency_symbol, wallet }));
+	} else if (type === 'kolliderAuthentication') {
+		if (msg.data.status === 'success') {
+			setIsWsConnected(true)
+			setIsWsAuthenticated(true)
+		}
 	}
 	// console.log('Umbrel Event', msg);
 };

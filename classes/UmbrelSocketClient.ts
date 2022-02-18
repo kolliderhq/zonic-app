@@ -132,6 +132,8 @@ const dataRefiner = (type: string, data: any) => {
 			return data;
 		case "makeConversion":
 			return data;
+		case "historicalTrades":
+			return data;
 		case 'error':
 			console.log(data);
 			return data;
