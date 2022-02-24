@@ -18,10 +18,8 @@ export function useInitialize() {
 
 const persistSettings = () => {
 	const settings = defaultLocalStore.get('settings');
-	//	first load display the welcome popup
 	console.log('settings >>>>>>> ', settings);
 	if (empty(settings)) {
-		storeDispatch(setPopup(POPUPS.WELCOME));
 		storeDispatch(setFirstLoad());
 	} else {
 		storeDispatch(setPersistSettings(settings));

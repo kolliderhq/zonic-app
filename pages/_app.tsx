@@ -19,33 +19,31 @@ import { googleTranslateException } from 'utils/misc';
 function MyApp({ Component, pageProps }: AppProps) {
 	const init = React.useMemo(() => <DataInit />, []);
 	return (
-		<PlausibleProvider domain="lite.kollider.xyz" enabled={process.env.NEXT_PUBLIC_UMBREL !== '1'}>
-			<Provider store={reduxStore}>
-				<SWRConfig
-					value={{
-						refreshInterval: 0,
-						fetcher: fetcher,
-						// shouldRetryOnError: false,
-						// onErrorRetry: false,
-						onErrorRetry: defaultOnErrorRetry,
-					}}>
-					<DefaultSeo
-						title="Zonic"
-						description="Synthetic stablecoins."
-						canonical={'trade.kollider.xyz'}
-						twitter={{
-							handle: '@zonic',
-							// site: '@site',
-							cardType: 'summary_large_image',
-						}}
-					/>
-					{init}
-					<PageWrapper>
-						<Component {...pageProps} />
-					</PageWrapper>
-				</SWRConfig>
-			</Provider>
-		</PlausibleProvider>
+		<Provider store={reduxStore}>
+			<SWRConfig
+				value={{
+					refreshInterval: 0,
+					fetcher: fetcher,
+					// shouldRetryOnError: false,
+					// onErrorRetry: false,
+					onErrorRetry: defaultOnErrorRetry,
+				}}>
+				<DefaultSeo
+					title="Zonic"
+					description="Synthetic stablecoins."
+					canonical={'trade.kollider.xyz'}
+					twitter={{
+						handle: '@zonic',
+						// site: '@site',
+						cardType: 'summary_large_image',
+					}}
+				/>
+				{init}
+				<PageWrapper>
+					<Component {...pageProps} />
+				</PageWrapper>
+			</SWRConfig>
+		</Provider>
 	);
 }
 

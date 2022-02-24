@@ -50,7 +50,7 @@ export const ConvertFunds = () => {
 				type: 'error',
 				level: TOAST_LEVEL.ERROR,
 			});
-		} else if (parseInt(dollarConversionAmount) > wallets.USD.balance && !isBuying) {
+		} else if (parseInt(dollarConversionAmount) > Math.round(wallets.USD.balance) && !isBuying) {
 			displayToast("You don't have enough USD to make this conversion.", {
 				type: 'error',
 				level: TOAST_LEVEL.ERROR,

@@ -253,7 +253,7 @@ const createAnonymousUser = () => {
 	const id = v4();
 	return {
 		username: 'username-' + id,
-		email: id + '@kollider.xyz',
+		email: id + '@zonic.xyz',
 		password: id.substring(1, 16) + '$.S',
 		user_type: USER_TYPE.LIGHT,
 	};

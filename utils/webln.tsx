@@ -39,7 +39,7 @@ export const weblnWithdraw = async (inputState: {
 			const result = await webln.makeInvoice({
 				amount: inputState.amount,
 				defaultAmount: inputState.amount,
-				defaultMemo: `Kollider Withdrawal ${inputState.amount} SATS`,
+				defaultMemo: `Zonic Withdrawal ${inputState.amount} SATS`,
 			});
 			if (result === undefined) {
 				return { error: 'Wallet is Locked. Unlock wallet and try again', locked: true };

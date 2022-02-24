@@ -1,5 +1,5 @@
 {
-	"name": "kollider-mobile-app",
+	"name": "zonic-umbrel-app",
 	"private": true,
 	"scripts": {
 		"dev": "cross-env NEXT_PUBLIC_BACK_ENV=dev NEXT_PUBLIC_DEBUG_MODE=1 PORT=3000 next dev",

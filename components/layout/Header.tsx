@@ -22,8 +22,8 @@ export const Header = () => {
 	return (
 		<div className="flex items-center justify-between w-full h-14 pb text-gray-800">
 			<figure className="w-full flex items-center justify-start relative">
-				<h1 className="text-2xl">Zonic</h1>
-				{/* <img className="w-30 h-[30px] xs:w-30 xs:h-8" src="/assets/logos/kollider_logo_white.png" /> */}
+				<img className="w-30 h-[50px] xs:w-30 xs:h-8" src="/assets/logos/zonic-icon.png" />
+				<h1 className="text-2xl px-2">Zonic</h1>
 			</figure>
 			<div className="col-span-2 w-full flex items-center justify-end gap-3 xxs:gap-4">
 				<div className="flex h-full border-r border-gray-800">
