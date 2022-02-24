@@ -39,7 +39,7 @@ export default function Home() {
 			<Header />
 			<div className="h-screen">
 				<div className="flex h-full">
-					<div className="bg-white font-semibold text-center rounded-3xl border px-4 py-8 h-3/4 mx-auto w-128 h-full shadow-2xl shadow-indigo-500/50">
+					<div className="bg-white font-semibold mx-auto text-center rounded-3xl border px-4 py-8 h-128 w-128 shadow-2xl shadow-indigo-500/50">
 						{!isUmbrelAuthenticated ? (
 							<UmbrelAuth />
 						) : (

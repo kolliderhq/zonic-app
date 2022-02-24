@@ -99,7 +99,7 @@ module.exports = {
 			'elevation-04dp':
 				'0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2)',
 			none: '0px 0px 0px rgba(0,0,0,0)',
-			'2xl': '0px 10px 150px 50px rgba(115, 114, 247, 0.75)',
+			'2xl': '0px 10px 100px 25px rgba(115, 114, 247, 0.75)',
 			'sm' : '0px 20px 50px 10px rgba(115, 114, 247, 0.50)'
 		},
 		zIndex: {
@@ -121,6 +121,9 @@ module.exports = {
 			},
 			width: { 
 				'128': '28rem'
+			},
+			height: {
+				'128': '42rem'
 			},
 			textColor: {
 				theme: {
