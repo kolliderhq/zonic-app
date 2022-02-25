@@ -80,7 +80,6 @@ const Webln = () => {
 const Umbrel = () => {
 	useUmbrel();
 	React.useEffect(() => {
-		// storeDispatch(setPopup(POPUPS.UMBREL_PW));
 		if (process.env.NEXT_PUBLIC_UMBREL === '1' && window.location.hostname !== 'umbrel.local') {
 			alert('Zonic only supports being loaded from umbrel.local:4243');
 		}

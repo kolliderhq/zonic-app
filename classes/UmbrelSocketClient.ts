@@ -15,6 +15,11 @@ class UmbrelSocketClient extends EventEmitter {
 		super();
 		this.connect = this.connect.bind(this);
 	}
+	
+	get isReady() {
+		if (this._socket && this._socket?.readyState === 1) return true;
+		return false;
+	}
 
 	public async connect(openCallback = noop, closeCallback = noop) {
 		this._socket = new WebSocket(WS_UMBREL.BASE, [], socketDefaultOptions);

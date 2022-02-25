@@ -9,7 +9,6 @@ import each from 'lodash-es/each';
 import { v4 as uuidv4, v4 } from 'uuid';
 
 import { Processor } from 'classes/Processor';
-import { baseSocketClient } from 'classes/SocketClient';
 import { API_NAMES, CONTEXTS, DIALOGS, SETTINGS, USER_TYPE } from 'consts';
 import {
 	defaultLocalStore,
@@ -105,8 +104,6 @@ const logOutFunc = () => {
 	storeDispatch(setUserLogout());
 	storeDispatch(setApiKey(''));
 	storeDispatch(setInitTrading());
-	// baseSocketClient.closeSocket(1000, 'logout');
-	baseSocketClient.reset();
 	// storeDispatch(setIsWsAuthenticated(false));
 	displayToast(<p>Successfully Logged Out</p>, {
 		type: 'success',

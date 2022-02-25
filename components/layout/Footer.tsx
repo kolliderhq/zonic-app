@@ -5,6 +5,7 @@ import cn from 'clsx';
 import { baseSocketClient } from 'classes/SocketClient';
 import { useAppSelector } from 'hooks';
 import { useSafeInterval } from 'hooks/useSafeInterval';
+import { baseUmbrelSocketClient } from 'classes/UmbrelSocketClient';
 
 export const Footer = () => {
 	return (
@@ -15,7 +16,7 @@ export const Footer = () => {
 						<div>
 							<SocketStatus />
 						</div>
-						<div className="ml-2">{process.env.NEXT_PUBLIC_UMBREL === '1' ? <UmbrelStatus /> : <WeblnStatus />}</div>
+						<div className="ml-2">{process.env.NEXT_PUBLIC_UMBREL === '1' ? <UmbrelStatus /> : <></>}</div>
 					</div>
 					<div className="flex flex-col w-full">
 						<a href="htts://kollider.xyz" className="mx-auto cursor-pointer">
@@ -50,9 +51,9 @@ const SocketStatus = () => {
 
 	const [status, setStatus] = React.useState('bg-red-500');
 	React.useEffect(() => {
-		if (online && baseSocketClient.isReady) setStatus('bg-green-500');
+		if (online && baseUmbrelSocketClient.isReady) setStatus('bg-green-500');
 		else setStatus('bg-red-500');
-	}, [online, baseSocketClient.isReady]);
+	}, [online, baseUmbrelSocketClient.isReady]);
 
 	return (
 		<div className="h-full flex items-center text-gray-800">
@@ -62,39 +63,10 @@ const SocketStatus = () => {
 	);
 };
 
-const WeblnStatus = () => {
-	const isWeblnConnected = useAppSelector(state => state.connection.isWeblnConnected);
-	const [, updateState] = React.useState(true);
-	const forceUpdate = React.useCallback(() => updateState(v => !v), []);
-	const ticker = useSafeInterval(5000);
-	React.useEffect(() => {
-		const cbIndex = ticker.subscribe(() => {
-			forceUpdate();
-		});
-		return () => {
-			ticker.unsubscribe(cbIndex);
-		};
-	}, []);
-
-	const [status, setStatus] = React.useState('bg-red-500');
-	React.useEffect(() => {
-		if (isWeblnConnected) setStatus('bg-green-500');
-		else setStatus('bg-red-500');
-	}, [isWeblnConnected]);
-
-	return (
-		<div className="h-full flex items-center">
-			<div className={cn('h-2 w-2 rounded-full mr-1', status)} />
-			<p className="text-xs leading-none">Webln</p>
-		</div>
-	);
-};
-
 const UmbrelStatus = () => {
 	const isUmbrelAvailable = useAppSelector(
 		state => state.connection.isUmbrelConnected && state.connection.isUmbrelAuthenticated
 	);
-	console.log(isUmbrelAvailable);
 	return (
 		<div className="h-full flex items-center">
 			<div className={cn('h-2 w-2 rounded-full mr-1', isUmbrelAvailable ? 'bg-green-500' : 'bg-red-500')} />

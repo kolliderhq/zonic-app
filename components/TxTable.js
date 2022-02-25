@@ -21,22 +21,8 @@ export const TxTable = () => {
 	const [selectedWallet] = useAppSelector(state => [state.layout.selectedWallet]);
 	const [rows, setRows] = useState([]);
 	const [tableHasLoaded, setTableHasLoaded] = useState(false);
-	const [dataFetchId, setDataFetchId] = useState()
-
-	const fetchHistoricalTrades = () => {
-		baseUmbrelSocketClient.socketSend(UMBREL_MESSAGE_TYPES.GET_HISTORICAL_TRADES, {}, data => {
-			let newRows = []
-			data.data.map(value => {
-				if (value.symbol === 'BTCUSD.PERP') {
-					newRows.push(value);
-				}
-			});
-			setRows(newRows);
-		})
-	}
 
 	useEffect(() => {
-		clearInterval(dataFetchId)
 		baseUmbrelSocketClient.socketSend(UMBREL_MESSAGE_TYPES.GET_HISTORICAL_TRADES, {}, data => {
 			let newRows = []
 			data.data.map(value => {
@@ -46,10 +32,7 @@ export const TxTable = () => {
 			});
 			setTableHasLoaded(true)
 			setRows(newRows);
-			const id = setInterval(fetchHistoricalTrades, 5000)
-			setDataFetchId(id)
 		})
-		return () => clearInterval(dataFetchId)
 	}, [selectedWallet])
 
 	return (
