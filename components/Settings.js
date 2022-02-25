@@ -53,7 +53,7 @@ export const Settings = () => {
 				<div className="flex grid grid-cols-3">
 					<div className="truncate ... col-span-2">{username}</div>
 					<div className="col-span-1 text-right">
-						<button className="underline underline-offset-2">Edit</button>
+						{/* <button className="underline underline-offset-2">Edit</button> */}
 					</div>
 				</div>
 			</div>
