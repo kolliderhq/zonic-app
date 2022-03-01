@@ -37,7 +37,7 @@ export const ReceivePayment = () => {
 				<div className="text-lg mx-auto">Receive Payment</div>
 			</div>
 			<div className="flex flex-col h-full mt-8">
-				<div className="text-left text-gray-600">Chose amount</div>
+				<div className="text-left text-gray-600">Choose amount</div>
 				<div className="flex rounded-md border-2 border-gray-300 focus:border-gray-300 hover:border-gray-300 mt-2 p-2 text-gray-600">
 					<input
 						// onFocus={() => console.log('}

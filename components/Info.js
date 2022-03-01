@@ -20,14 +20,14 @@ export const Info = () => {
 					<p>Zonic allows you to create a synthetic USD account with you lightning Bitcoin.</p>
 				</div>
 				<div className="mt-5 font-bold text-lg text-gray-800">What's a synthetic USD account?</div>
-				<p className="text-sm">A synthetic USD account is a short Bitcoin position against the USD dollar, that is settled in Bitoin.</p>
-				<p className="text-sm mt-2">You cannot spend USD directly. When you send funds the payment will be settled in Bicoin. However if you send USD through 
+				<p className="text-sm">A synthetic USD account is a short Bitcoin position against the USD dollar, that is settled in Bitcoin.</p>
+				<p className="text-sm mt-2">You cannot spend USD directly. When you send funds the payment will be settled in Bitcoin. However if you send USD through 
 				the UI your synthetic USD will be converted back into Bitcoin at the time of payment.</p>
 				<div className="mt-5 font-bold text-lg text-gray-800">What Zonic isn't</div>
 				<div>
 					<ul class="list-disc px-4 text-sm">
 						<li>USD balance on Zonic is not non-custodial. However, the Bitcoin balance is.</li>
-						<li>It is not a stable coin.</li>
+						<li>It is <span className="font-bold">not</span> a stablecoin.</li>
 					</ul>
 				</div>
 			</div>
