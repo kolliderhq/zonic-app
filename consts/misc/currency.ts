@@ -7,7 +7,7 @@ export const CURRENCY = {
 
 export const CURRENCY_NAME_MAP = {
 	ETH: "Ethereum",
-	BTC: "Bicoin",
+	BTC: "Bitcoin",
 	USD: "US Dollar"
 }
 

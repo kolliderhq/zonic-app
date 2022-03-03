@@ -19,7 +19,7 @@ export const Footer = () => {
 						<div className="ml-2">{process.env.NEXT_PUBLIC_UMBREL === '1' ? <UmbrelStatus /> : <></>}</div>
 					</div>
 					<div className="flex flex-col w-full">
-						<a href="htts://kollider.xyz" className="mx-auto cursor-pointer">
+						<a href="https://kollider.xyz" className="mx-auto cursor-pointer">
 						<div className="flex flex-col mx-auto">
 							<div className="text-gray-800">Powered by </div>
 							<div className="mx-auto">
